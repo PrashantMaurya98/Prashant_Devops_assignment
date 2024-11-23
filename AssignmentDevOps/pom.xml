@@ -59,7 +59,7 @@
                 <version>3.3.1</version>
                 <configuration>
                     <!-- Specify the webapp directory to be used by Maven -->
-                    <webXml>src/main/webapp/index.html</webXml>
+                    <!--webXml>src/main/webapp/index.html</webXml-->
                 </configuration>
             </plugin>
 		</plugins>
