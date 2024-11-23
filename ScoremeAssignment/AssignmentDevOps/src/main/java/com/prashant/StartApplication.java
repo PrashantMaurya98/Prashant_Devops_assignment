@@ -12,7 +12,7 @@ public class StartApplication {
 
     @GetMapping("/")
     public String index(final Model model) {
-        model.addAttribute("title", "This is a Java Static Web Application");
+        model.addAttribute("title", "This is a Java based Static Web Application");
         model.addAttribute("msg", "Application Is Deployed To Apache Tomcat");
         return "index";
     }
