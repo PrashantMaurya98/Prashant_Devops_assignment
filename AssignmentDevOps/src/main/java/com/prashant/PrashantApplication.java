@@ -11,19 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @SpringBootApplication
 @Controller
 
-public class PrashantApplication extends SpringBootServletInitializer {
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(PrashantApplication.class); // Updated class name
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(PrashantApplication.class, args); // Updated class name
-    }
-}
-
-
 public class PrashantApplication {
 
     @GetMapping("/")
