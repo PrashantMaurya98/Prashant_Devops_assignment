@@ -24,7 +24,7 @@ public class PrashantApplication extends SpringBootServletInitializer {
 }
 
 
-public class StartApplication {
+public class PrashantApplication {
 
     @GetMapping("/")
     public String index(final Model model) {
