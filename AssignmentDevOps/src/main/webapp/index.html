@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
-    <link data-th-href="@{/css/main.css?{id}(id=${timestamp})}" rel="stylesheet">
-    <title>Assignment--Build & Deploy JAVA Based Static Web PrashantApplication</title>
+    <title>Prashant Maurya - Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Scoreme Assignment</div></a>
-</nav>
-
-<main role="main" class="container">
-    <div class="starter-template">
-        <h1 th:text="${title}">Default title.</h1>
-        <p th:text="${msg}">Default text.</p>
-    </div>
-</main>
-
-<script data-th-src="@{/js/main.js}"></script>
+    <header>
+        <img src="https://i.imgur.com/KvEuBiI.png">
+        <h1>Prashant Maurya</h1>
+        <p>DevOps| Developer | Designer | Tech Enthusiast</p>
+    </header>
+    <section id="bio">
+        <h2>About Me</h2>
+        <p>Workin as a Devops engineer having 4 years of experience</p>
+    </section>
+    <section id="work">
+        <h2>My Work</h2>
+        <div class="project" id="project1">Project 1</div>
+        <div class="project" id="project2">Project 2</div>
+        <div class="project" id="project3">Project 3</div>
+    </section>
+    <footer>
+        <p>Contact me at prashant.maurya98@gmail.com</p>
+    </footer>
 </body>
-
 </html>
