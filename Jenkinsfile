@@ -4,6 +4,9 @@ pipeline {
         jdk 'jdk17'
         maven 'maven'
     }
+    environment {
+        SCANNER_HOME = tool 'sonar-scanner'
+    }
 
     stages {
         stage('Git checkout') {
@@ -17,11 +20,35 @@ pipeline {
                 sh "mvn clean compile"
                  }
         }
+        stage('Sonarqube Analysis') {
+            steps {
+               sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.url=http://ipaddress:9000/ -Dsonar.login=squ_0dbe68dbee1fb33ebf9d46975a892aee5d414927 -Dsonar.projectName=PrashantApp \
+                    -Dsonar.java.binaries=. \
+                    -Dsonar.projectKey=PrashantApp '''
+            }
+        }
         
         stage('Package') {
             steps {
                 sh "mvn clean package"                
                  }
+        }
+        stage('OWASP Dependency Check') {
+            steps {
+                dependencyCheck additionalArguments: '--scan target/', odcInstallation: 'owasp'
+            }
+        }
+        stage('Publish OWASP Dependency Check Report') {
+            steps {
+                publishHTML(target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'target',
+                    reportFiles: 'dependency-check-report.html',
+                    reportName: 'OWASP Dependency Check Report'
+                ])
+            }
         }
         stage('Deploy to Tomcat') {
             steps {
