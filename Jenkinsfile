@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Sonarqube Analysis') {
             steps {
-               sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.url=http://ipaddress:9000/ -Dsonar.login=squ_0dbe68dbee1fb33ebf9d46975a892aee5d414927 -Dsonar.projectName=PrashantApp \
+               sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.url=http://3.19.74.188:9000/ -Dsonar.login=squ_0dbe68dbee1fb33ebf9d46975a892aee5d414927 -Dsonar.projectName=PrashantApp \
                     -Dsonar.java.binaries=. \
                     -Dsonar.projectKey=PrashantApp '''
             }
