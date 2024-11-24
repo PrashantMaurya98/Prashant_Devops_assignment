@@ -14,7 +14,7 @@ pipeline {
         
         stage('Compile') {
             steps {
-                sh "mvn compile"
+                sh "mvn clean compile"
                  }
         }
         
@@ -26,7 +26,7 @@ pipeline {
         stage('Deploy to Tomcat') {
             steps {
         // Deploy to Tomcat
-                sh 'cp target/PrashantApp.war /opt/apache-tomcat-11.0.0-M25/webapps/'
+                sh 'sudo cp target/PrashantApp.war /opt/apache-tomcat-11.0.0-M25/webapps/'
                  }      
         }
     }
