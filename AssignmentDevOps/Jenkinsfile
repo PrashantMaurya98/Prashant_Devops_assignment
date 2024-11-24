@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Git checkout') {
             steps {
-                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/jaiswaladi246/springboot-java-poject.git'
+                git branch: 'main', url: 'https://github.com/PrashantMaurya98/Prashant_Devops_assignment.git'
             }
         }
         
@@ -24,8 +24,10 @@ pipeline {
                 
                  }
         }
-        
-        
-         
-    }
+        stage('Deploy to Tomcat') {
+            steps {
+        // Deploy to Tomcat
+                sh 'cp target/webapp.war /path/to/tomcat/webapps/'
+                 }      
+        }
 }
